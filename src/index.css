@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    --brand-soft: #F8FAFC;
+    --brand-accent: #805AD5;
+    --brand-lavender: #9F7AEA;
+    --brand-mint: #48BB78;
+    --brand-blue: #4299E1;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-soft text-brand-text font-['Outfit',_sans-serif] antialiased selection:bg-brand-accent/20;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-brand-heading font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  
+  .glass {
+    @apply bg-white/40 backdrop-blur-xl border border-white/40 shadow-soft;
+  }
+  
+  .noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.03;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .btn-primary {
+    @apply bg-brand-accent text-white px-8 py-4 rounded-full font-medium transition-all duration-500 hover:shadow-xl hover:shadow-brand-accent/20 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white/50 backdrop-blur-sm text-brand-text px-8 py-4 rounded-full font-medium border border-brand-lavender transition-all duration-300 hover:bg-white hover:shadow-soft;
+  }
+
+  /* Bento Grid Utilities */
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-4 md:auto-rows-[240px];
+  }
+
+  .bento-item {
+    @apply bg-white rounded-[2rem] p-8 shadow-soft border border-brand-lavender/50 overflow-hidden relative transition-all duration-500;
+  }
+}
