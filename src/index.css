@@ -1,19 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
-@config "../tailwind.config.js";
+
+@theme {
+  --color-brand-lavender: #9F7AEA;
+  --color-brand-lavender-soft: #F3E8FF;
+  --color-brand-lavender-deep: #6B46C1;
+  --color-brand-mint: #48BB78;
+  --color-brand-mint-soft: #F0FFF4;
+  --color-brand-mint-deep: #2F855A;
+  --color-brand-blue: #4299E1;
+  --color-brand-blue-soft: #EBF8FF;
+  --color-brand-blue-deep: #2B6CB0;
+  --color-brand-soft: #F8FAFC;
+  --color-brand-accent: #805AD5;
+  --color-brand-text: #64748B;
+  --color-brand-heading: #1E293B;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
+
+  --animate-fade-up: fadeUp 0.5s ease-out forwards;
+  --animate-float: float 3s ease-in-out infinite;
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
 
 @layer base {
-  :root {
-    --brand-soft: #F8FAFC;
-    --brand-accent: #805AD5;
-    --brand-lavender: #9F7AEA;
-    --brand-mint: #48BB78;
-    --brand-blue: #4299E1;
-    --brand-text: #64748B;
-    --brand-heading: #1E293B;
-  }
-
   * {
     box-sizing: border-box !important;
     margin: 0;
@@ -27,8 +50,8 @@
   }
 
   body {
-    background-color: var(--brand-soft);
-    color: var(--brand-text);
+    background-color: var(--color-brand-soft);
+    color: var(--color-brand-text);
     font-family: 'Outfit', sans-serif;
     overflow-x: hidden;
     width: 100%;
@@ -48,7 +71,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--brand-heading);
+    color: var(--color-brand-heading);
     font-weight: 700;
     line-height: 1.1;
   }
@@ -76,15 +99,34 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-soft);
   }
 
   .btn-primary {
-    @apply bg-brand-accent text-white rounded-full font-bold transition-all duration-300 active:scale-95 flex items-center justify-center gap-2;
+    background-color: var(--color-brand-accent);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 700;
+    transition-property: all;
+    transition-duration: 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:active {
+    scale: 0.95;
   }
 
   .btn-secondary {
-    @apply bg-white/50 backdrop-blur-sm text-brand-text rounded-full font-bold border border-brand-lavender/30 transition-all duration-300;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    color: var(--color-brand-text);
+    border-radius: 9999px;
+    font-weight: 700;
+    border: 1px solid rgba(159, 122, 234, 0.3);
+    transition-property: all;
+    transition-duration: 300ms;
   }
 
   /* Simplified Bento Grid */
@@ -103,9 +145,24 @@
   }
 
   .bento-item {
-    @apply bg-white rounded-[2rem] p-6 md:p-8 shadow-soft border border-brand-lavender/20 overflow-hidden relative flex flex-col justify-between;
-    width: 100%;
-    height: 100%;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(159, 122, 234, 0.2);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition-property: all;
+    transition-duration: 500ms;
+  }
+
+  @media (min-width: 768px) {
+    .bento-item {
+      padding: 2rem;
+    }
   }
 
   .noise {

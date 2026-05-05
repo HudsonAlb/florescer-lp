@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, MessageCircle } from 'lucide-react';
+import { Menu, X, ArrowRight, MessageCircle, Heart } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const navLinks = [
@@ -23,14 +23,14 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 md:p-6 pointer-events-none">
       <div className={cn(
-        "flex items-center gap-4 md:gap-8 px-4 md:px-8 py-3 rounded-full transition-all duration-500 pointer-events-auto w-full max-w-5xl",
+        "flex items-center gap-4 md:gap-8 px-4 md:px-8 py-2 rounded-full transition-all duration-500 pointer-events-auto w-full max-w-5xl",
         isScrolled ? "glass shadow-premium" : "bg-white/10 backdrop-blur-sm border border-white/20"
       )}>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-brand-accent rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold">F</span>
+          <div className="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center">
+            <Heart className="text-brand-accent fill-brand-accent" size={22} />
           </div>
-          <span className="text-lg font-bold tracking-tighter text-brand-heading">Florescer</span>
+          <span className="text-xl font-bold tracking-tighter text-brand-heading">Florescer</span>
         </div>
 
         <div className="hidden md:flex items-center gap-8 ml-auto">
