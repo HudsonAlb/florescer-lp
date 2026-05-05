@@ -8,13 +8,13 @@ import { Cursor, Magnetic } from './components/Interactive';
 
 function App() {
   return (
-    <div className="min-h-screen relative">
+    <div className="relative w-full overflow-x-hidden min-h-screen">
       <div className="noise" />
       <Cursor />
       
       <Navbar />
       
-      <main>
+      <main className="w-full">
         <Hero />
         <Services />
         <Differentials />

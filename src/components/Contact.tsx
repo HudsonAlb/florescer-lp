@@ -16,9 +16,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="py-24 bg-brand-soft">
+    <section id="contato" className="py-24 bg-brand-soft overflow-hidden w-full max-w-full">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-start w-full">
           <div>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
@@ -35,24 +35,24 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ x: 10 }}
-                className="flex items-center gap-4 p-6 bg-white rounded-3xl shadow-soft hover:shadow-premium transition-all group"
+                className="flex items-center gap-4 p-5 md:p-6 bg-white rounded-3xl shadow-soft hover:shadow-premium transition-all group"
               >
-                <div className="w-12 h-12 bg-brand-mint-soft rounded-2xl flex items-center justify-center text-brand-mint-deep group-hover:scale-110 transition-transform">
-                  <MessageCircle size={24} />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-mint-soft rounded-2xl flex items-center justify-center text-brand-mint-deep group-hover:scale-110 transition-transform">
+                  <MessageCircle size={20} className="md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-brand-text/50 uppercase tracking-wider">WhatsApp</p>
-                  <p className="text-lg font-bold text-brand-heading">(81) 99231-0781</p>
+                  <p className="text-[10px] md:text-xs font-semibold text-brand-text/50 uppercase tracking-wider">WhatsApp</p>
+                  <p className="text-base md:text-lg font-bold text-brand-heading">(81) 99231-0781</p>
                 </div>
               </motion.a>
 
-              <div className="flex items-center gap-4 p-6 bg-white rounded-3xl shadow-soft group">
-                <div className="w-12 h-12 bg-brand-lavender-soft rounded-2xl flex items-center justify-center text-brand-lavender-deep group-hover:scale-110 transition-transform">
-                  <Mail size={24} />
+              <div className="flex items-center gap-4 p-5 md:p-6 bg-white rounded-3xl shadow-soft group">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-lavender-soft rounded-2xl flex items-center justify-center text-brand-lavender-deep group-hover:scale-110 transition-transform">
+                  <Mail size={20} className="md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-brand-text/50 uppercase tracking-wider">E-mail</p>
-                  <p className="text-lg font-bold text-brand-heading">florescercdi1@gmail.com</p>
+                  <p className="text-[10px] md:text-xs font-semibold text-brand-text/50 uppercase tracking-wider">E-mail</p>
+                  <p className="text-base md:text-lg font-bold text-brand-heading">florescercdi1@gmail.com</p>
                 </div>
               </div>
 
@@ -60,14 +60,14 @@ const Contact = () => {
                 href="https://instagram.com/florescer_cdi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-6 bg-white rounded-3xl shadow-soft hover:bg-brand-blue-soft transition-all group"
+                className="flex items-center gap-4 p-5 md:p-6 bg-white rounded-3xl shadow-soft hover:bg-brand-blue-soft transition-all group"
               >
-                <div className="w-12 h-12 bg-brand-blue-soft rounded-2xl flex items-center justify-center text-brand-blue-deep group-hover:scale-110 transition-transform">
-                  <Camera size={24} />
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-brand-blue-soft rounded-2xl flex items-center justify-center text-brand-blue-deep group-hover:scale-110 transition-transform">
+                  <Camera size={20} className="md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-brand-text/50 uppercase tracking-wider">Instagram</p>
-                  <p className="text-lg font-bold text-brand-heading">@florescer_cdi</p>
+                  <p className="text-[10px] md:text-xs font-semibold text-brand-text/50 uppercase tracking-wider">Instagram</p>
+                  <p className="text-base md:text-lg font-bold text-brand-heading">@florescer_cdi</p>
                 </div>
               </a>
             </div>

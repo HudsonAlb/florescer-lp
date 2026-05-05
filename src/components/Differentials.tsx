@@ -1,81 +1,82 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2, Star, Users, Microscope, HeartHandshake } from 'lucide-react';
+import { CheckCircle2, Shield, Heart, Zap } from 'lucide-react';
 
-const highlights = [
+const differentials = [
   {
-    title: 'Equipe Multidisciplinar',
-    desc: 'Especialistas que trabalham em conjunto para um olhar 360º da criança.',
-    icon: Users,
-    color: 'bg-brand-blue-soft text-brand-blue-deep'
+    title: "Ciência ABA",
+    description: "Intervenções baseadas em evidências científicas comprovadas para o TEA.",
+    icon: Zap,
+    color: "bg-brand-lavender/10"
   },
   {
-    title: 'Ciência e Afeto',
-    desc: 'Métodos com comprovação científica aplicados com amor e paciência.',
-    icon: Star,
-    color: 'bg-brand-lavender-soft text-brand-lavender-deep'
+    title: "Equipe Multi",
+    description: "Psicólogos, Fonoaudiólogos e Terapeutas integrados em um só plano.",
+    icon: Shield,
+    color: "bg-brand-mint/10"
   },
   {
-    title: 'Ambiente Seguro',
-    desc: 'Espaço planejado para minimizar sobrecarga sensorial.',
+    title: "Acolhimento Familiar",
+    description: "Treinamento e suporte contínuo para os pais e cuidadores.",
+    icon: Heart,
+    color: "bg-brand-blue/10"
+  },
+  {
+    title: "Ambiente Adaptado",
+    description: "Espaços lúdicos planejados para conforto e desenvolvimento sensorial.",
     icon: CheckCircle2,
-    color: 'bg-brand-mint-soft text-brand-mint-deep'
-  },
-  {
-    title: 'Foco em Resultados',
-    desc: 'Metas claras e relatórios periódicos de evolução.',
-    icon: Microscope,
-    color: 'bg-brand-blue-soft text-brand-blue-deep'
-  },
+    color: "bg-brand-lavender/10"
+  }
 ];
 
 const Differentials = () => {
   return (
-    <section id="sobre" className="py-32 bg-white relative overflow-hidden">
+    <section id="sobre" className="py-24 md:py-32 bg-white overflow-hidden w-full">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-24">
-          <div className="relative">
-            <div className="sticky top-32">
+        <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
+          <div className="flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="text-brand-accent font-bold tracking-widest uppercase text-[10px] md:text-sm mb-4"
+            >
+              Nossos Diferenciais
+            </motion.div>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-8"
+            >
+              Por que escolher a <span className="text-brand-accent italic font-serif">Florescer</span>?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-brand-text/70 text-base md:text-lg mb-8 leading-relaxed max-w-xl"
+            >
+              Somos mais que uma clínica; somos um centro de apoio integral. Nossa metodologia une o rigor científico à sensibilidade humana para transformar vidas.
+            </motion.p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
+            {differentials.map((item, i) => (
               <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-              >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand-soft rounded-full mb-6">
-                  <HeartHandshake className="text-brand-accent" size={16} />
-                  <span className="text-xs font-bold text-brand-text uppercase tracking-widest">Nossa Essência</span>
-                </div>
-                <h2 className="text-5xl lg:text-6xl font-bold mb-8 tracking-tighter leading-[1.1]">
-                  Por que a Florescer é o <span className="text-brand-accent">lugar certo</span> para seu filho?
-                </h2>
-                <p className="text-xl text-brand-text/60 mb-10 leading-relaxed font-medium">
-                  Combinamos o rigor da ciência com o calor do acolhimento humano. Aqui, o desenvolvimento não é apenas uma meta, é uma jornada de amor.
-                </p>
-                <button className="btn-secondary">
-                  Conheça Nossa História
-                </button>
-              </motion.div>
-            </div>
-          </div>
-
-          <div className="space-y-8">
-            {highlights.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group p-10 rounded-[3rem] bg-brand-soft border border-transparent hover:border-brand-lavender hover:bg-white hover:shadow-premium transition-all duration-500"
+                className="bg-brand-soft rounded-3xl p-6 md:p-8 border border-brand-lavender/10 hover:shadow-premium transition-all duration-300"
               >
-                <div className="flex items-start gap-8">
-                  <div className={`w-16 h-16 rounded-3xl ${item.color} flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                    <item.icon size={32} />
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-bold mb-4 tracking-tight">{item.title}</h4>
-                    <p className="text-brand-text/50 text-lg leading-relaxed">{item.desc}</p>
-                  </div>
+                <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-6", item.color)}>
+                  <item.icon className="text-brand-heading" size={24} />
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-brand-heading">{item.title}</h3>
+                <p className="text-brand-text/70 text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -86,3 +87,5 @@ const Differentials = () => {
 };
 
 export default Differentials;
+
+const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');

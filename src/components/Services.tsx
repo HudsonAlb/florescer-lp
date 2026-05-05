@@ -1,113 +1,122 @@
 import { motion } from 'framer-motion';
-import { Brain, Speech, Activity, Puzzle, Music, Plus } from 'lucide-react';
+import { 
+  Brain, 
+  Mic2, 
+  Puzzle, 
+  Baby, 
+  Users, 
+  HeartHandshake,
+  Plus
+} from 'lucide-react';
 import { cn } from '../lib/utils';
 
 const services = [
   {
     title: 'Psicologia & ABA',
-    description: 'A ciência do comportamento aplicada para resultados reais e duradouros.',
+    description: 'Intervenção baseada na Ciência do Comportamento Aplicada para o desenvolvimento de novas habilidades.',
     icon: Brain,
-    color: 'bg-brand-lavender-soft text-brand-lavender-deep',
+    color: 'bg-brand-lavender/10',
     className: 'md:col-span-2 md:row-span-2',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dad99978?q=80&w=2070&auto=format&fit=crop'
   },
   {
     title: 'Fonoaudiologia',
-    description: 'Comunicação e linguagem.',
-    icon: Speech,
-    color: 'bg-brand-blue-soft text-brand-blue-deep',
+    description: 'Especialistas em comunicação, linguagem e motricidade orofacial.',
+    icon: Mic2,
+    color: 'bg-brand-mint/10',
     className: 'md:col-span-2 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop'
   },
   {
     title: 'T.O.',
-    description: 'Autonomia e Integração.',
+    description: 'Terapia Ocupacional focada em autonomia e integração sensorial.',
     icon: Puzzle,
-    color: 'bg-brand-mint-soft text-brand-mint-deep',
+    color: 'bg-brand-blue/10',
     className: 'md:col-span-1 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1618347135473-a128df218bc6?q=80&w=2070&auto=format&fit=crop'
   },
   {
-    title: 'Fisioterapia',
-    description: 'Desenvolvimento motor.',
-    icon: Activity,
-    color: 'bg-brand-lavender-soft text-brand-lavender-deep',
+    title: 'Neuropsicologia',
+    description: 'Avaliação detalhada das funções cognitivas e comportamentais.',
+    icon: Baby,
+    color: 'bg-brand-lavender/10',
     className: 'md:col-span-1 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1620147425251-17f1681283e7?q=80&w=2070&auto=format&fit=crop'
+  },
+  {
+    title: 'Psicopedagogia',
+    description: 'Apoio especializado nos processos de aprendizagem e inclusão escolar.',
+    icon: Users,
+    color: 'bg-brand-mint/10',
+    className: 'md:col-span-2 md:row-span-1',
+    image: 'https://images.unsplash.com/photo-1491843351663-7c1c62820cbe?q=80&w=2070&auto=format&fit=crop'
   },
   {
     title: 'Especialidades Lúdicas',
-    description: 'Musicoterapia, Arteterapia e Terapias Aquáticas para um desenvolvimento leve.',
-    icon: Music,
-    color: 'bg-brand-blue-soft text-brand-blue-deep',
+    description: 'Musicoterapia e Psicomotricidade para um desenvolvimento prazeroso.',
+    icon: HeartHandshake,
+    color: 'bg-brand-blue/10',
     className: 'md:col-span-2 md:row-span-1',
-  },
+    image: 'https://images.unsplash.com/photo-1514316454349-750a7fd3da3a?q=80&w=2070&auto=format&fit=crop'
+  }
 ];
 
 const Services = () => {
   return (
-    <section id="servicos" className="py-32 bg-brand-soft">
+    <section id="servicos" className="py-24 md:py-32 bg-brand-soft overflow-hidden w-full">
       <div className="container-custom">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-brand-accent font-bold tracking-widest uppercase text-sm mb-4"
-            >
-              Nossas Especialidades
-            </motion.div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-5xl lg:text-6xl font-bold tracking-tighter"
-            >
-              Um ecossistema completo para o <span className="text-brand-accent italic font-serif">desenvolvimento</span>.
-            </motion.h2>
-          </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+        <div className="mb-12 md:mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-brand-text/50 max-w-sm text-lg font-medium"
+            className="text-brand-accent font-bold tracking-widest uppercase text-[10px] md:text-sm mb-4"
           >
-            Abordagem multidisciplinar baseada em evidências científicas e acolhimento humano.
-          </motion.p>
+            Nossas Especialidades
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter max-w-2xl"
+          >
+            Um ecossistema completo para o <span className="text-brand-accent italic font-serif">desenvolvimento</span>.
+          </motion.h2>
         </div>
 
         <div className="bento-grid">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
               className={cn(
                 "bento-item group",
                 service.className
               )}
             >
               {service.image && (
-                <div className="absolute inset-0 -z-10 opacity-10 group-hover:opacity-20 transition-opacity duration-700">
+                <div className="absolute inset-0 -z-10 opacity-10 md:opacity-0 group-hover:opacity-20 transition-opacity duration-700">
                   <img src={service.image} alt="" className="w-full h-full object-cover" />
                 </div>
               )}
               
-              <div className="h-full flex flex-col justify-between">
+              <div className="relative z-10 h-full flex flex-col justify-between">
                 <div>
-                  <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3", service.color)}>
-                    <service.icon className="text-brand-heading" size={24} />
+                  <div className={cn("w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-4 md:mb-6", service.color)}>
+                    <service.icon className="text-brand-heading" size={20} />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 tracking-tight">{service.title}</h3>
-                  <p className="text-brand-text/60 font-medium leading-relaxed">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 tracking-tight">{service.title}</h3>
+                  <p className="text-brand-text/70 font-medium leading-relaxed text-sm md:text-base">
                     {service.description}
                   </p>
                 </div>
                 
-                <div className="flex justify-end">
-                  <div className="w-10 h-10 rounded-full border border-brand-lavender flex items-center justify-center group-hover:bg-brand-accent group-hover:border-brand-accent transition-all duration-300">
-                    <Plus size={18} className="group-hover:text-white transition-colors" />
+                <div className="flex justify-end mt-4">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-brand-lavender/30 flex items-center justify-center group-hover:bg-brand-accent transition-all duration-300">
+                    <Plus size={16} className="group-hover:text-white transition-colors" />
                   </div>
                 </div>
               </div>
@@ -122,8 +131,8 @@ const Services = () => {
             className="md:col-span-2 md:row-span-1 bg-brand-accent rounded-[2rem] p-8 flex flex-col justify-center items-center text-center text-white relative overflow-hidden group cursor-pointer"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            <h3 className="text-3xl font-bold mb-4 relative z-10">Precisa de ajuda para escolher?</h3>
-            <p className="text-white/80 mb-8 max-w-xs relative z-10">Fale com nossa coordenação e agende uma triagem gratuita.</p>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 relative z-10">Precisa de ajuda?</h3>
+            <p className="text-white/80 mb-8 max-w-xs relative z-10 text-sm md:text-base">Fale com nossa coordenação e agende uma triagem gratuita.</p>
             <button className="bg-white text-brand-accent px-8 py-3 rounded-full font-bold relative z-10 hover:scale-105 transition-transform">
               Conversar Agora
             </button>

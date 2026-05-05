@@ -2,22 +2,22 @@ import { Heart } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white border-t border-brand-lavender-soft py-12">
+    <footer className="bg-white border-t border-brand-lavender-soft py-12 overflow-hidden w-full max-w-full">
       <div className="container-custom">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-2">
+        <div className="grid md:grid-cols-4 gap-12 mb-12 text-center md:text-left w-full">
+          <div className="col-span-2 flex flex-col items-center md:items-start">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 bg-brand-lavender-soft rounded-lg flex items-center justify-center">
                 <Heart className="text-brand-accent fill-brand-accent" size={18} />
               </div>
               <span className="text-xl font-bold">Florescer</span>
             </div>
-            <p className="text-brand-text/60 max-w-sm leading-relaxed">
+            <p className="text-brand-text/60 max-w-sm leading-relaxed mx-auto md:mx-0">
               Centro de Desenvolvimento Infantil especializado no acolhimento e tratamento de crianças autistas e com outros atrasos no neurodesenvolvimento.
             </p>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-bold mb-6">Navegação</h4>
             <ul className="space-y-4">
               <li><a href="#" className="text-brand-text/60 hover:text-brand-accent transition-colors">Início</a></li>
@@ -27,7 +27,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-bold mb-6">Atendimento</h4>
             <p className="text-brand-text/60 mb-4">Segunda a Sexta<br />08:00 às 18:00</p>
             <p className="text-brand-text/60 italic text-sm">Sábados sob agendamento prévio.</p>

@@ -10,31 +10,104 @@
     --brand-lavender: #9F7AEA;
     --brand-mint: #48BB78;
     --brand-blue: #4299E1;
+    --brand-text: #64748B;
+    --brand-heading: #1E293B;
   }
 
   * {
+    box-sizing: border-box !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   body {
-    @apply bg-brand-soft text-brand-text font-['Outfit',_sans-serif] antialiased selection:bg-brand-accent/20;
+    background-color: var(--brand-soft);
+    color: var(--brand-text);
+    font-family: 'Outfit', sans-serif;
     overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  ::selection {
+    background-color: rgba(128, 90, 213, 0.2);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply text-brand-heading font-semibold tracking-tight;
+    color: var(--brand-heading);
+    font-weight: 700;
+    line-height: 1.1;
   }
 }
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-  
+
+  @media (min-width: 768px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
   .glass {
-    @apply bg-white/40 backdrop-blur-xl border border-white/40 shadow-soft;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
   }
-  
+
+  .btn-primary {
+    @apply bg-brand-accent text-white rounded-full font-bold transition-all duration-300 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white/50 backdrop-blur-sm text-brand-text rounded-full font-bold border border-brand-lavender/30 transition-all duration-300;
+  }
+
+  /* Simplified Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .bento-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+    }
+  }
+
+  .bento-item {
+    @apply bg-white rounded-[2rem] p-6 md:p-8 shadow-soft border border-brand-lavender/20 overflow-hidden relative flex flex-col justify-between;
+    width: 100%;
+    height: 100%;
+  }
+
   .noise {
     position: fixed;
     top: 0;
@@ -42,25 +115,8 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
-    opacity: 0.03;
+    opacity: 0.02;
     z-index: 9999;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  .btn-primary {
-    @apply bg-brand-accent text-white px-8 py-4 rounded-full font-medium transition-all duration-500 hover:shadow-xl hover:shadow-brand-accent/20 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2;
-  }
-
-  .btn-secondary {
-    @apply bg-white/50 backdrop-blur-sm text-brand-text px-8 py-4 rounded-full font-medium border border-brand-lavender transition-all duration-300 hover:bg-white hover:shadow-soft;
-  }
-
-  /* Bento Grid Utilities */
-  .bento-grid {
-    @apply grid grid-cols-1 md:grid-cols-4 gap-4 md:auto-rows-[240px];
-  }
-
-  .bento-item {
-    @apply bg-white rounded-[2rem] p-8 shadow-soft border border-brand-lavender/50 overflow-hidden relative transition-all duration-500;
   }
 }
