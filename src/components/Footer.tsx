@@ -1,4 +1,4 @@
-
+import { Heart } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -6,8 +6,11 @@ const Footer = () => {
       <div className="container-custom">
         <div className="grid md:grid-cols-4 gap-12 mb-12 text-center md:text-left w-full">
           <div className="col-span-2 flex flex-col items-center md:items-start">
-            <div className="mb-6">
-              <img src="/logo.png" alt="Florescer Logo" className="h-16 w-auto object-contain" />
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-10 h-10 bg-brand-lavender/10 rounded-xl flex items-center justify-center">
+                <Heart className="text-brand-accent fill-brand-accent" size={22} />
+              </div>
+              <span className="text-xl font-bold tracking-tighter text-brand-heading">Florescer</span>
             </div>
             <p className="text-brand-text/60 max-w-sm leading-relaxed mx-auto md:mx-0">
               Centro de Desenvolvimento Infantil especializado no acolhimento e tratamento de crianças autistas e com outros atrasos no neurodesenvolvimento.
